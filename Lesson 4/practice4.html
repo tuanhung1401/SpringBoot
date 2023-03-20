@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #circle {
+            background-color: blue;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="circle"></div>
+
+    <script>
+        // Lấy element hình tròn 
+        var circle = document.getElementById("circle");
+
+        // Function di chuyển hình tròn
+        function moveCircle(event) {
+
+            // Lấy vị trí hiện tại của hình tròn 
+            var leftPosition = circle.offsetLeft;
+            var topPosition = circle.offsetTop;
+
+            // Di chuyển hình tròn dựa trên nút bấm 
+            switch (event.keyCode) {
+                case 37: // mũi tên trái
+                    circle.style.left = leftPosition - 20 + "px";
+                    break;
+                case 38: // mũi tên lên
+                    circle.style.top = topPosition - 20 + "px";
+                    break;
+                case 39: // mũi tên phải
+                    circle.style.left = leftPosition + 20 + "px";
+                    break;
+                case 40: // mũi tên xuống
+                    circle.style.top = topPosition + 20 + "px";
+                    break;
+            }
+        }
+
+        // Thêm event listener vào object window
+        window.addEventListener("keydown", moveCircle);
+
+    </script>
+
+</body>
+
+</html>

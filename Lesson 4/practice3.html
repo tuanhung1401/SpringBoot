@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="shape" style="display:none; background-color: red; position:absolute;"></div>
+    <script>
+        var shape = document.getElementById("shape");
+        document.addEventListener("keydown", function (event) {
+            var x = Math.floor(Math.random()*window.innerWidth)+0;
+            var y = Math.floor(Math.random()*window.innerWidth)+0;
+            shape.style.top = y - 20 + "px";
+            shape.style.left = x - 20 + "px";
+            shape.style.width = "40px";
+            shape.style.height = "40px";
+            shape.style.display = "block";
+            if(event.keyCode == 13){
+                shape.style.borderRadius = "50%";
+            }else if(event.keyCode == 32){
+                shape.style.borderRadius = "0%";
+            }else{
+                document.body.style.backgroundColor = getRandomRGB();
+            }
+        })
+
+        function getRandomRGB() {
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 25);
+            return "rgb(" + r + ", " + g + ", " + b + ")";
+        }
+    </script>
+</body>
+
+</html>

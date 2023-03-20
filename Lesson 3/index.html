@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading">Xin chào các bạn</h1>
+    <div class="content">
+        <p class="para">para 1</p>
+        <p class="para">para 2</p>
+        <p>para 3</p>
+        <p>para 4</p>
+    </div>
+    <script>
+        let h1 = document.getElementById('heading');
+        console.log(h1);
+
+        let paras = document.getElementsByClassName('para');
+        console.log(paras[1]);
+
+        let paras1 = document.getElementsByTagName('p');
+        console.log(paras1[3]);
+
+        let h1Selector = document.querySelector('#heading');
+        console.log(h1Selector);
+
+        // let para = document.querySelector('.para');
+        // console.log(para);
+
+        let p = document.querySelector('p');
+        console.log(p);
+
+        let para3 = document.querySelector('.content p:nth-child(3)');
+        console.log(para3);
+
+        let paraAll = document.querySelectorAll('p');
+        console.log(paraAll[2]);
+
+        let content = document.querySelector('.content');
+        console.log(content.innerHTML);
+        console.log(content.innerText);
+        console.log(content.textContent);
+
+        h1.innerText = "Hello World";
+        h1.style.color = 'red';
+        h1.style.backgroundColor = 'black';
+        const para = document.querySelectorAll('p');
+        console.log(para);
+        Array.from(para).map(ele => ele.style.color = 'blue');
+
+        const para2 = document.createElement('p');
+        para2.innerText = "New para 2";
+        document.body.appendChild(para2);
+
+        const paraNew = document.createElement('p');
+        para.innerText = "New para 1";
+
+        document.body.prepend(para);
+
+        const heading = document.createElement('h2');
+        heading.innerText = "Các bạn có khỏe không?";
+
+        const box = document.querySelector('.box');
+        document.body.insertBefore(heading, box);
+
+        
+
+
+    </script>
+</body>
+
+</html>

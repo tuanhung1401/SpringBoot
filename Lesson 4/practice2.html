@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="circle" style="display:none; background-color: red; border-radius: 50%; position:absolute;"></div>
+    <script>
+        var circle = document.getElementById("circle");
+        document.onclick = function (event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            circle.style.top = y - 20 + "px";
+            circle.style.left = x - 20 + "px";
+            circle.style.width = "40px";
+            circle.style.height = "40px";
+            circle.style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
