@@ -1,136 +1,137 @@
-// const findMax = (arr) => {
-//     let max = arr[0];
-//     for(let i = 1; i < arr.length; i++) {
-//         if (arr[i] > max) {
-//             max = arr[i];
-//         }
-//     }
-//     return max;
-// }
+const grades = [
+  { name: "John", grade: 8, sex: "M" },
+  { name: "Sarah", grade: 12, sex: "F" },
+  { name: "Bob", grade: 16, sex: "M" },
+  { name: "Johnny", grade: 2, sex: "M" },
+  { name: "Ethan", grade: 4, sex: "M" },
+  { name: "Paula", grade: 18, sex: "F" },
+  { name: "Donald", grade: 5, sex: "M" },
+  { name: "Jennifer", grade: 13, sex: "F" },
+  { name: "Courtney", grade: 15, sex: "F" },
+  { name: "Jane", grade: 9, sex: "F" },
+];
 
-// console.log(findMax([3,283,179,9]));
+// Tính thứ hạng trung bình của cả lớp
+function averageGrade() {
+  const sum = grades.reduce((total, student) => total + student.grade, 0);
+  return sum / grades.length;
+}
 
-// const findMin = (arr) => {
-//     let min = arr[0];
-//     for(let i = 1; i < arr.length; i++) {
-//         if (arr[i] < min) {
-//             min = arr[i];
-//         }
-//     }
-//     return min;
-// }
+console.log("Thứ hạng trung bình của cả lớp:", averageGrade());
 
-// console.log(findMin([3,283,179,9]));
+// Tính thứ hạng trung bình của nam trong lớp
+function averageMaleGrade() {
+  const maleGrades = grades.filter((student) => student.sex === "M");
+  const sum = maleGrades.reduce((total, student) => total + student.grade, 0);
+  return sum / maleGrades.length;
+}
 
-// const getRemainder = (arr) => {
-//     let remainderArr = [];
-//     for (let i = 0; i < arr.length; i++) {
-//         remainderArr.push(arr[i] % 2);
-//     }
-//     return remainderArr;
-// }
+console.log("Thứ hạng trung bình của Nam trong lớp:", averageMaleGrade());
 
-// console.log(getRemainder([3,283,179,9]));
+// Tính thứ hạng trung bình của nữ trong lớp
+function averageFemaleGrade() {
+  const femaleGrades = grades.filter((student) => student.sex === "F");
+  const sum = femaleGrades.reduce((total, student) => total + student.grade, 0);
+  return sum / femaleGrades.length;
+}
 
-// const repeatString = (str) => {
-//     const result = [];
-//     for (let i = 0; i < 10; i++) {
-//         result.push(str);
-//     }
-//     return result;
-// }
+console.log("Thứ hạng trung bình của Nữ trong lớp:", averageFemaleGrade());
 
-// console.log(repeatString(["hello"]));
+// Tìm học viên Nam có thứ hạng cao nhất trong lớp
+function highestMaleGrade() {
+  const maleGrades = grades.filter((student) => student.sex === "M");
+  const highestGrade = Math.max(...maleGrades.map((student) => student.grade));
+  return maleGrades.find((student) => student.grade === highestGrade);
+}
 
-// const checkInArray = (arr, item) => {
-//     return arr.includes(item);
-// }
+console.log("Hcoj viên Nam có điểm cao nhất:", highestMaleGrade());
 
-// console.log(checkInArray([3,283,179,9],4));
+// Tìm học viên Nữ có thứ hạng cao nhất trong lớp
+function highestFemaleGrade() {
+  const femaleGrades = grades.filter((student) => student.sex === "F");
+  const highestGrade = Math.max(
+    ...femaleGrades.map((student) => student.grade)
+  );
+  return femaleGrades.find((student) => student.grade === highestGrade);
+}
 
-// const getGreaterElement = (arr, item) => {
-//     let result = [];
-//     for (let i = 0; i < arr.length; i++){
-//         if(item < (arr[i])){
-//             result.push(arr[i]);
-//         }
-//     } return result;
-// }
+console.log("Học viên Nữ có điểm cao nhất:", highestFemaleGrade());
 
-// console.log(getGreaterElement([3,283,179,9],100));
+// Tìm học viên Nam có thứ hạng thấp nhất trong lớp
+function lowestMaleGrade() {
+  const maleGrades = grades.filter((student) => student.sex === "M");
+  const lowestGrade = Math.min(...maleGrades.map((student) => student.grade));
+  return maleGrades.find((student) => student.grade === lowestGrade);
+}
 
-// const generateHexColor = () => {
-//     let hex = "#";
-//     for (let i = 0; i < 6; i++) {
-//         hex += (Math.floor(Math.random() * 16)).toString(16);
-//     } return hex;
-// }
+console.log("Học viên Nam có điểm thấp nhất:", lowestMaleGrade());
 
-// console.log(generateHexColor);
+// Tìm học viên Nữ có thứ hạng thấp nhất trong lớp
+function lowestFemaleGrade() {
+  const femaleGrades = grades.filter((student) => student.sex === "F");
+  const lowestGrade = Math.min(...femaleGrades.map((student) => student.grade));
+  return femaleGrades.find((student) => student.grade === lowestGrade);
+}
 
-let products = [
-    {
-        name: "Iphone 13 Pro Max", // Tên sản phẩm
-        price: 3000000, // Giá mỗi sản phẩm
-        brand: "Apple", // Thương hiệu
-        count: 2, // Số lượng sản phẩm trong giỏ hàng
-    },
-    {
-        name: "Samsung Galaxy Z Fold3",
-        price: 41000000,
-        brand: "Samsung",
-        count: 1,
-    },
-    {
-        name: "IPhone 11",
-        price: 15500000,
-        brand: "Apple",
-        count: 1,
-    },
-    {
-        name: "OPPO Find X3 Pro",
-        price: 19500000,
-        brand: "OPPO",
-        count: 3,
-    },
-]
+console.log("Học viên nữ có điểm thấp nhất:", lowestFemaleGrade());
 
-1. 
-products.forEach(product => {
-        console.log(`${product.name} - ${product.price} - ${product.brand} - ${product.count}`);
-    });
+// Thứ hạng cao nhất của cả lớp
+function highestGrade() {
+  const highest = Math.max(...grades.map((student) => student.grade));
+  return highest;
+}
 
-2. 
-let totalPrice = 0;
-products.forEach(product => {
-    totalPrice += product.price * product.count;
-});
-console.log(totalPrice);
+console.log("Điểm cao nhất của lớp:", highestGrade());
 
+// Thứ hạng thấp nhất của cả lớp
+function lowestGrade() {
+  const lowest = Math.min(...grades.map((student) => student.grade));
+  return lowest;
+}
 
-3. 
-let appleProducts = products.filter(product => product.brand === "Apple");
-console.log(appleProducts);
+console.log("Điểm thấp nhất của lớp:", lowestGrade());
 
-4.
-let expensiveProducts = products.filter(product => product.price > 20000000);
-console.log(expensiveProducts);
+// Lấy ra danh sách tất cả học viên Nữ trong lớp
+function getFemaleStudents() {
+  const femaleStudents = grades.filter((student) => student.sex === "F");
+  return femaleStudents;
+}
 
-5.
-let proProducts = products.filter(product => product.name.toLowerCase().includes("pro"));
-console.log(proProducts);
+console.log("Danh sách học viên:", getFemaleStudents());
 
-6. 
-products.push({
-    name: "Huawei P40 Pro",
-    price: 18500000,
-    brand: "Huawei",
-    count: 1,
-})
-console.log(products);
+// Sắp xếp tên học viên theo chiều tăng dần của bảng chữ cái
+function sortByName() {
+  const sortedNames = grades.map((student) => student.name).sort();
+  return sortedNames;
+}
 
-7. 
-let newProducts = products.filter(product => product.brand !== "Samsung");
-console.log(newProducts);
+console.log("Danh sách học viên theo bảng chữ cái:", sortByName());
 
-8.
+// Sắp xếp thứ hạng học viên theo chiều giảm dần
+function sortByGradeDescending() {
+  const sortedGrades = grades.sort((a, b) => b.grade - a.grade);
+  return sortedGrades;
+}
+
+console.log("Thứ hạng học viên theo chiều giảm dần:", sortByGradeDescending());
+
+// Lấy ra học viên Nữ có tên bắt đầu bằng “J”
+function getFemaleStudentsStartingWithJ() {
+  const femaleStudents = grades.filter(
+    (student) => student.sex === "F" && student.name.startsWith("J")
+  );
+  return femaleStudents;
+}
+
+console.log(
+  'Học viên Nữ có tên bắt đầu bằng "J":',
+  getFemaleStudentsStartingWithJ()
+);
+
+// Lấy ra top 5 người có thứ hạng cao nhất trong lớp
+function getTopStudents(count) {
+  const sortedGrades = grades.sort((a, b) => b.grade - a.grade);
+  return sortedGrades.slice(0, count);
+}
+
+console.log("Top 5 Học viên:", getTopStudents(5));
